@@ -10,21 +10,21 @@ export class HomePageComponent {
 
   isLight = true;
 
-  selectedArgument='all'
+  selectedArgument = 'all'
 
-  constructor(private redditService: RedditService){
+  constructor(private redditService: RedditService) {
     this.loadPosts()
   }
 
-  changeThemes(){
+  changeThemes() {
     document.body.classList.toggle('dark-mode');
     this.isLight = !this.isLight;
   }
 
-  loadPosts(){
+  loadPosts() {
     this.redditService.getRedditPosts(this.selectedArgument).subscribe({
-      next:data=>console.log(data),
-      error: err=> console.log(err)
+      next: data => console.log(data),
+      error: err => console.log(err)
     })
   }
 }
